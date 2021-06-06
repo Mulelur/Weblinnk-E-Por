@@ -2,8 +2,8 @@ import React from "react";
 import img from "../../assets/Violet.jpeg";
 import { AboutMe } from "../../components";
 import { DownloadCVButton } from "../../components/buttons";
-import cv from "../../assets/cv/VIOLETS MHLONGO.pdf";
-import letter from "../../assets/cv/Violet Mhlongo.pdf";
+import cv from "../../assets/cv/CURRICULUM VITAE OF VIOLET TINTSWALO MHLONGOedit new 2021.pdf";
+import letter from "../../assets/cv/Cover letter Violet Tintswalo.edited.pdf";
 
 export default function AboutMeContainer() {
   return (

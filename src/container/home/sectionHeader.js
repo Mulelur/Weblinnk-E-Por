@@ -1,6 +1,6 @@
 import React from "react";
 import { SectionHeader } from "../../components";
-import cv from "../../assets/cv/VIOLETS MHLONGO.pdf";
+import cv from "../../assets/cv/CURRICULUM VITAE OF VIOLET TINTSWALO MHLONGOedit new 2021.pdf";
 
 export default function SectionHeaderContainer() {
   return (
