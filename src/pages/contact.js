@@ -1,5 +1,5 @@
 import React from "react";
-import ContactContainer from "../container/contact/contact";
+import ContactContainer from "../container/contact/contactDialog";
 import FooterContainer from "../container/footer";
 import HeaderContainer from "../container/header";
 import NavBarContainer from "../container/navBar";

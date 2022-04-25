@@ -1,5 +1,5 @@
 import React from "react";
-import AboutMeContainer from "../container/aboutMe/aboutMe";
+import AboutMeContainer from "../container/aboutMe/aboutMeDialog";
 import FooterContainer from "../container/footer";
 import HeaderContainer from "../container/header";
 import NavBarContainer from "../container/navBar";

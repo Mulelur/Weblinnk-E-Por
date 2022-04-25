@@ -1,20 +1,27 @@
 import React from "react";
+import { useStoreActions, useStoreState } from "easy-peasy";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-import AboutMe from "./pages/aboutMe";
-import Contact from "./pages/contact";
-import Expertise from "./pages/expertise";
-import Hobbies from "./pages/hobbies";
 import Home from "./pages/home";
 
+const url = "http://localhost:1337/api/projects/1";
+
 export default function App() {
+  const project = useStoreState((state) => state.project);
+
+  const setProject = useStoreActions((actions) => actions.setProject);
+
+  React.useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setProject(data.data.attributes);
+      });
+  }, []);
+
   return (
     <Router>
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/expertise" component={Expertise} />
-        <Route path="/about-me" exact component={AboutMe} />
-        <Route path="/contact" component={Contact} />
-        <Route path="/hobbies" component={Hobbies} />
       </Switch>
     </Router>
   );

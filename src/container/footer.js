@@ -1,23 +1,16 @@
 import React from "react";
 import { Footer } from "../components";
-import { FacebookIcon, InkedInIcon } from "../icons/icons";
 
-export default function FooterContainer() {
+export default function FooterContainer({ color }) {
   return (
-    <Footer>
-      <Footer.List>
-        <Footer.ListItem>
-          <Footer.Link href="https://www.facebok.com">
-            <FacebookIcon />
-          </Footer.Link>
-        </Footer.ListItem>
-        <Footer.ListItem>
-          <Footer.Link href="https://www.linkedin.com">
-            <InkedInIcon />
-          </Footer.Link>
-        </Footer.ListItem>
-      </Footer.List>
-      <Footer.Text>2018 - 2020 © Violet. Design by Weblinnk.</Footer.Text>
+    <Footer color={color}>
+      <Footer.Box>
+        <Footer.Container>
+          <Footer.Content>
+            <Footer.Tex>2022 © Violet. Design by Weblinnk</Footer.Tex>
+          </Footer.Content>
+        </Footer.Container>
+      </Footer.Box>
     </Footer>
   );
 }

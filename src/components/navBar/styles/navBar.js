@@ -3,14 +3,42 @@ import { Link as ReachRouterLink } from "react-router-dom";
 import { primaryColor, textColor } from "../../../colors/colors";
 
 export const Container = styled.div`
+  // display: flex;
+  // position: relative;
+  // align-items: center;
+  // justify-content: space-between;
+  // width: 100%;
+  // height: 4.7rem;
+  // background-color: ${primaryColor};
+  // color: ${textColor};
+
+  padding: 0px;
+  padding: 1.8rem;
   display: flex;
-  position: relative;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
-  height: 4.7rem;
-  background-color: ${primaryColor};
-  color: ${textColor};
+  z-index: 1;
+  background-color: transparent;
+
+  @media (min-width: 992px) {
+    transition: all 0.4s ease 0s;
+    position: fixed !important;
+  }
+
+  ${(props) =>
+    props.scrolling &&
+    `
+         transform: translateY(-100%);
+         transition: all 0.4s ease 0s;
+       `}
+
+  ${(props) =>
+    props.showMenu &&
+    `
+    transform: translateY(0%);
+    box-shadow: rgb(65 62 101 / 10%) 0px 12px 34px -11px;
+    z-index: 9999;
+    background: #161C2D;`}
 `;
 
 export const Nav = styled.nav`
@@ -19,12 +47,15 @@ export const Nav = styled.nav`
   z-index: 999;
   margin-bottom: 0px;
   transition: all 0.5s ease-in-out;
+  color: #fff;
 `;
 
 export const NavLink = styled(ReachRouterLink)`
   color: inherit;
   text-decoration: none;
   font-size: 1.5rem;
+
+  margin-right: auto;
 `;
 
 export const List = styled.ul`
@@ -38,11 +69,16 @@ export const List = styled.ul`
 
 export const ListItem = styled.li`
   padding: 1rem;
-  font-size: 1.4rem;
   text-transform: capitalize;
-  &:hover {
-    color: #e65f78;
-  }
+  transition: all 0.4s ease 0s;
+  align-items: center;
+  display: inline-flex;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 24px;
+  text-transform: lowercase;
+  color: rgb(255, 255, 255) !important;
+  padding: 18px !important;
 `;
 
 export const Image = styled.img``;

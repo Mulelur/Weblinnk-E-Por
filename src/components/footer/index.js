@@ -1,22 +1,26 @@
 import React from "react";
-import { Container, List, ListItem, Text, Link } from "./styles/footer";
+import * as FOO from "./styles/footer";
 
 export default function Footer({ children, ...restProps }) {
-  return <Container {...restProps}>{children}</Container>;
+  return <FOO.Main {...restProps}>{children}</FOO.Main>;
 }
 
-Footer.List = function FooterList({ children, ...restProps }) {
-  return <List {...restProps}>{children}</List>;
+Footer.Heading2 = function FooterHeading2({ children, ...restProps }) {
+  return <FOO.Heading2 {...restProps}>{children}</FOO.Heading2>;
 };
 
-Footer.ListItem = function FooterListItem({ children, ...restProps }) {
-  return <ListItem {...restProps}>{children}</ListItem>;
+Footer.Box = function FooterBox({ children, ...restProps }) {
+  return <FOO.Box {...restProps}>{children}</FOO.Box>;
 };
 
-Footer.Text = function FooterText({ children, ...restProps }) {
-  return <Text {...restProps}>{children}</Text>;
+Footer.Container = function FooterContainer({ children, ...restProps }) {
+  return <FOO.Container {...restProps}>{children}</FOO.Container>;
 };
 
-Footer.Link = function FooterLink({ children, ...restProps }) {
-  return <Link {...restProps}>{children}</Link>;
+Footer.Content = function FooterContent({ children, ...restProps }) {
+  return <FOO.Content {...restProps}>{children}</FOO.Content>;
+};
+
+Footer.Tex = function FooterText({ children, ...restProps }) {
+  return <FOO.Text {...restProps}>{children}</FOO.Text>;
 };

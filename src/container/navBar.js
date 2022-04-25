@@ -1,93 +1,54 @@
-import React, { useState } from "react";
+import React from "react";
+import { useStoreState, useStoreActions } from "easy-peasy";
 import { NavBar } from "../components";
-import { NavData } from "../data/navData";
 import { MenuIcon } from "../icons/icons";
 
-export default function NavBarContainer() {
-  const [toggel, setToggel] = useState(false);
-  const [toggelMenu, setToggelMenu] = useState(false);
+export default function NavBarContainer({ setOpen }) {
+  const dialogs = useStoreState((state) => state.dialogs);
+
+  const setDialog = useStoreActions((actions) => actions.setDialog);
+
+  const handleClickOpen = (id) => {
+    setDialog({ id, open: true });
+  };
+
+  const [showMenu, setShowMenu] = React.useState(false);
+  const [scrolling, setScrolling] = React.useState(false);
+
+  const onScroll = () => {
+    if (window.scrollY >= 2) {
+      setScrolling(true);
+      setShowMenu(true);
+    } else {
+      setShowMenu(false);
+      setScrolling(false);
+    }
+  };
+
+  window.addEventListener("scroll", onScroll);
+
   return (
     <NavBar>
-      <NavBar.Container>
+      <NavBar.Container scrolling={scrolling} showMenu={showMenu}>
         <NavBar.NavLink>
-          {/* <NavBar.Image  /> */}
-          <NavBar.Logo>Violet</NavBar.Logo>
+          <NavBar.Logo>Weblinnk</NavBar.Logo>
         </NavBar.NavLink>
         <NavBar.Menu
           onClick={(e) => {
-            setToggelMenu(!toggelMenu);
+            setOpen(true);
           }}
         >
           <MenuIcon />
         </NavBar.Menu>
-        {toggelMenu && (
-          <NavBar.DropDown>
-            {NavData.map((item) => {
-              return (
-                !item.type && (
-                  <NavBar.ListItem>
-                    <NavBar.NavLink to={item.path}>{item.title}</NavBar.NavLink>
-                  </NavBar.ListItem>
-                )
-              );
-            })}
-            <NavBar.ListItem
-              onClick={(e) => {
-                setToggel(!toggel);
-              }}
-            >
-              More
-            </NavBar.ListItem>
-            {toggel && (
-              <NavBar.DropDown>
-                {NavData.map((item) => {
-                  return (
-                    item.type === "more" && (
-                      <NavBar.ListItem>
-                        <NavBar.NavLink to={item.path}>
-                          {item.title}
-                        </NavBar.NavLink>
-                      </NavBar.ListItem>
-                    )
-                  );
-                })}
-              </NavBar.DropDown>
-            )}
-          </NavBar.DropDown>
-        )}
 
         <NavBar.List>
-          {NavData.map((item) => {
+          {dialogs.map((item) => {
             return (
-              !item.type && (
-                <NavBar.ListItem>
-                  <NavBar.NavLink to={item.path}>{item.title}</NavBar.NavLink>
-                </NavBar.ListItem>
-              )
+              <NavBar.ListItem onClick={() => handleClickOpen(item.id)}>
+                <NavBar.NavLink>{item.name}.</NavBar.NavLink>
+              </NavBar.ListItem>
             );
           })}
-          <NavBar.ListItem
-            onClick={(e) => {
-              setToggel(!toggel);
-            }}
-          >
-            More
-          </NavBar.ListItem>
-          {toggel && (
-            <NavBar.DropDown>
-              {NavData.map((item) => {
-                return (
-                  item.type === "more" && (
-                    <NavBar.ListItem>
-                      <NavBar.NavLink to={item.path}>
-                        {item.title}
-                      </NavBar.NavLink>
-                    </NavBar.ListItem>
-                  )
-                );
-              })}
-            </NavBar.DropDown>
-          )}
         </NavBar.List>
       </NavBar.Container>
     </NavBar>
