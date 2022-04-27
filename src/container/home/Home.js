@@ -2,35 +2,9 @@ import React from "react";
 import { Home } from "../../components";
 import { Button } from "../../components/buttons";
 
-const host = "http://localhost:1337";
+import { homePage } from "../../config/config";
 
 export default function SectionHeaderContainer() {
-  const qs = require("qs");
-  const query = qs.stringify(
-    {
-      populate: ["Profile1"],
-    },
-    {
-      encodeValuesOnly: true,
-    }
-  );
-
-  const url = `http://localhost:1337/api/projects/1?${query}`;
-
-  const [homeData, setHomeData] = React.useState({});
-
-  const [mediaData, setMediaData] = React.useState({});
-
-  React.useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        setHomeData(data.data.attributes.HomePage);
-        setMediaData(data.data.attributes.Profile1.data.attributes);
-        console.log(data.data.attributes);
-      });
-  }, []);
-
   return (
     <Home>
       <Home.Box>
@@ -38,19 +12,19 @@ export default function SectionHeaderContainer() {
           <Home.Content>
             <Home.ImageMain>
               <Home.Image
-                src={`http://localhost:1337${mediaData.url}`}
-                alt={mediaData.name}
+                src={homePage.profile.url}
+                alt={homePage.profile.name}
               />
             </Home.ImageMain>
             <Home.Heading4>Hello Welcome</Home.Heading4>
-            <Home.Heading2>{homeData.intro}</Home.Heading2>
+            <Home.Heading2>{homePage.intro}</Home.Heading2>
           </Home.Content>
         </Home.Container>
       </Home.Box>
       <Home.Box>
         <Home.Container>
           <Home.Content>
-            <Home.Text>{homeData.quote}</Home.Text>
+            <Home.Text>{homePage.quote}</Home.Text>
             <Button>Explore more...</Button>
           </Home.Content>
         </Home.Container>
@@ -58,7 +32,7 @@ export default function SectionHeaderContainer() {
       <Home.Box>
         <Home.Container>
           <Home.Content>
-            <Home.Heading2>{homeData.text}</Home.Heading2>
+            <Home.Heading2>{homePage.text}</Home.Heading2>
             <Home.Links>
               <Home.Link>CONTACT@FOLIO.DESIGN</Home.Link>
               <Home.Divider>|</Home.Divider>

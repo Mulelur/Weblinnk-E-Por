@@ -8,6 +8,8 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Contact } from "../../components";
 import { ClearButton } from "../../components/buttons";
 
+import { user } from "../../config/config";
+
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Zoom ref={ref} {...props} />;
 });
@@ -188,7 +190,7 @@ export default function ContactDialog() {
                         Email me at
                       </Contact.ContactCardText>
                       <Contact.ContactCardLink href="mailto:hello@folio.com">
-                        hello@folio.com
+                        {user.email}
                       </Contact.ContactCardLink>
                     </Contact.ContactCardItem>
                     <Contact.ContactCardItem style={{ marginTop: "3rem" }}>
@@ -196,7 +198,7 @@ export default function ContactDialog() {
                         Call me ats
                       </Contact.ContactCardText>
                       <Contact.ContactCardLink href="tel:+1-402-4983">
-                        +1-402-4983
+                        {user.phoneNumber}
                       </Contact.ContactCardLink>
                     </Contact.ContactCardItem>
                   </Contact.ContactCard>
