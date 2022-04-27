@@ -36,6 +36,24 @@ function Intro3() {
   );
 }
 
+function Intro4() {
+  return (
+    <Intros>
+      <Intros.Box>
+        <Intros.Container>
+          <Intros.Content>
+            <Intros.TextBox>
+              <Intros.Text>Contact Me</Intros.Text>
+              <Intros.Heading2>
+                “A positive mindset brings positive things.”
+              </Intros.Heading2>
+            </Intros.TextBox>
+          </Intros.Content>
+        </Intros.Container>
+      </Intros.Box>
+    </Intros>
+  );
+}
 function Intro2() {
   return (
     <Intros>
@@ -54,4 +72,4 @@ function Intro2() {
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default { Intro1, Intro2, Intro3 };
+export default { Intro1, Intro2, Intro3, Intro4 };

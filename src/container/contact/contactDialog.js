@@ -10,6 +10,7 @@ import { ClearButton } from "../../components/buttons";
 
 import { user } from "../../config/config";
 import FooterContainer from "../footer";
+import Intros from "../Intros";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Zoom ref={ref} {...props} />;
@@ -78,6 +79,7 @@ export default function ContactDialog() {
         onClose={() => handleClose(4)}
         TransitionComponent={Transition}
       >
+        <Intros.Intro4 />
         <ClearButton onClick={() => handleClose(4)}>
           <CloseIcon fontSize="large" />
         </ClearButton>

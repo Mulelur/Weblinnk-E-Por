@@ -1,6 +1,6 @@
 export const ProjectDetails = {
-  projectName: "",
-  projectVersion: "",
+  projectName: "epo-e",
+  projectVersion: "1.0.0.2",
   projectDescription: "",
   projectAuthor: "",
   projectAuthorEmail: "",

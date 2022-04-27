@@ -178,7 +178,7 @@ export const ListTitle = styled.span`
 export const ListText = styled.span`
   display: inline-block;
   font-size: 1.5rem;
-  padding-top: 0.5rem;
+  padding-top: 1rem;
   padding-left: 3.5rem;
   position: relative;
 
@@ -190,7 +190,7 @@ export const ListText = styled.span`
     height: 2.3rem;
     background-color: #fff;
     margin-right: 10px;
-    top: 11px;
+    top: 16px;
     left: 0;
     position: absolute;
   }
@@ -202,7 +202,7 @@ export const ListText = styled.span`
     width: 2.8rem;
     height: 2.8rem;
     border: 1px solid #fff;
-    top: 8.5px;
+    top: 13.5px;
 
     left: -2.5px;
     position: absolute;
