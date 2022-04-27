@@ -9,6 +9,7 @@ import { Contact } from "../../components";
 import { ClearButton } from "../../components/buttons";
 
 import { user } from "../../config/config";
+import FooterContainer from "../footer";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Zoom ref={ref} {...props} />;
@@ -207,6 +208,7 @@ export default function ContactDialog() {
             </Contact.Container>
           </Contact.Box>
         </Contact>
+        <FooterContainer />
       </Dialog>
     </div>
   );

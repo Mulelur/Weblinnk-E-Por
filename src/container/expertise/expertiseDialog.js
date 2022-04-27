@@ -11,6 +11,7 @@ import SmTime from "../../components/svg/SMTime";
 import Intros from "../Intros";
 
 import { projectsPage } from "../../config/config";
+import DataSVG from "../../components/svg/Data";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
@@ -105,6 +106,9 @@ export default function ExpertiseDialog() {
                   </Expertise.Subjects>
                 </Expertise.Content>
               </Expertise.Container>
+              <Expertise.Floating>
+                <DataSVG />
+              </Expertise.Floating>
             </Expertise.Box>
             <Expertise.Box>
               <Expertise.Container>

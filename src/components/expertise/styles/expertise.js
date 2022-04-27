@@ -32,6 +32,7 @@ export const Box = styled.div`
     padding-bottom: 25px;
   }
 
+  position: relative;
   box-sizing: border-box;
   min-width: 0px;
   padding-top: 50px;
@@ -180,8 +181,7 @@ export const ListItem = styled.li`
   font-size: 1.3rem;
   text-transform: capitalize;
   padding: 2rem;
-  margin: 1.5rem;
-  heigth: 5rem;
+  margin: 1.5rem 0;
   padding: 2.3rem;
   background-color: #f5f5f5;
   color: #000000;
@@ -343,9 +343,11 @@ export const Floating = styled.div`
   background-color: #7eceed;
   box-shadow: 0 0 1px 0 rgba(6, 24, 44, 0.18), 0 1px 2px 0 rgba(6, 24, 44, 0.2);
   animation: floating 8s ease-in-out infinite;
-  top: 17rem;
-  left: 23rem;
+  left: 1rem;
+  bottom: 4rem;
   z-index: 1;
+
+  display: none;
 
   @keyframes floating {
     0% {
@@ -360,8 +362,9 @@ export const Floating = styled.div`
   }
   transform-origin: 50% 100%;
 
-  // &:before {
-  //   content: "";
+  @media (max-width: 586px) {
+    display: block;
+  }
 `;
 
 export const Floating2 = styled.div`

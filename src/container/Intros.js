@@ -1,18 +1,8 @@
 import * as React from "react";
 import { Intros } from "../components";
+import { aboutPage, hobbiesPage, projectsPage } from "../config/config";
 
 function Intro1() {
-  const url = "http://localhost:1337/api/projects/1";
-
-  const [hobbiesData, setHobbiesData] = React.useState({});
-  React.useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        setHobbiesData(data.data.attributes.HobbiesPage);
-      });
-  }, []);
-
   return (
     <Intros>
       <Intros.Box>
@@ -20,7 +10,7 @@ function Intro1() {
           <Intros.Content>
             <Intros.TextBox>
               <Intros.Text>🏀 hobbies and interests.</Intros.Text>
-              <Intros.Heading2>{hobbiesData.intro}</Intros.Heading2>
+              <Intros.Heading2>{hobbiesPage.intro}</Intros.Heading2>
             </Intros.TextBox>
           </Intros.Content>
         </Intros.Container>
@@ -30,17 +20,6 @@ function Intro1() {
 }
 
 function Intro3() {
-  const url = "http://localhost:1337/api/projects/1";
-
-  const [expertiseData, setExpertiseData] = React.useState({});
-
-  React.useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        setExpertiseData(data.data.attributes.MyProjectsPage);
-      });
-  }, []);
   return (
     <Intros>
       <Intros.Box>
@@ -48,7 +27,7 @@ function Intro3() {
           <Intros.Content>
             <Intros.TextBox>
               <Intros.Text>👋 FROM SOUTH AFRICA</Intros.Text>
-              <Intros.Heading2>{expertiseData.intro}</Intros.Heading2>
+              <Intros.Heading2>{projectsPage.intro}</Intros.Heading2>
             </Intros.TextBox>
           </Intros.Content>
         </Intros.Container>
@@ -58,17 +37,6 @@ function Intro3() {
 }
 
 function Intro2() {
-  const url = `http://localhost:1337/api/projects/1`;
-
-  const [aboutData, setAboutPage] = React.useState({});
-
-  React.useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        setAboutPage(data.data.attributes.AboutPage);
-      });
-  }, []);
   return (
     <Intros>
       <Intros.Box>
@@ -76,7 +44,7 @@ function Intro2() {
           <Intros.Content>
             <Intros.TextBox>
               <Intros.Text>About Me </Intros.Text>
-              <Intros.Heading2>{aboutData.intro}</Intros.Heading2>
+              <Intros.Heading2>{aboutPage.intro}</Intros.Heading2>
             </Intros.TextBox>
           </Intros.Content>
         </Intros.Container>
