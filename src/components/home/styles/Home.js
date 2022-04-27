@@ -77,7 +77,7 @@ export const Heading2 = styled.h2`
 
   @media (max-width: 576px) {
     font-size: 34px;
-    line-height: 47px;
+    line-height: 36px;
   }
 `;
 

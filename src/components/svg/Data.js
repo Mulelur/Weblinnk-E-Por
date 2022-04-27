@@ -5,8 +5,8 @@ const DataSVG = (props) => (
     data-name="#160_data_arranging_flatline"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 400 300"
-    width={406}
-    height={306}
+    width={380}
+    height={276}
     className="illustration styles_illustrationTablet__1DWOa"
     {...props}
   >
