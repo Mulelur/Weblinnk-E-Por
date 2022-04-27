@@ -73,9 +73,11 @@ export default function AboutMeDialog() {
                         {aboutPage.links.map((item, idx) => {
                           return (
                             <>
-                              <Button key={idx} href={item.url}>
-                                {item.title}
-                              </Button>
+                              <AboutMe.Btn>
+                                <Button key={idx} href={item.url}>
+                                  {item.title}
+                                </Button>
+                              </AboutMe.Btn>
                             </>
                           );
                         })}

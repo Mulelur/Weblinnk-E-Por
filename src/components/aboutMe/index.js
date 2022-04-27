@@ -18,6 +18,7 @@ import {
   ListTitle,
   ListText,
   TextCenter,
+  Btn,
 } from "./styles/aboutMe";
 
 export default function AboutMe({ children, ...restProps }) {
@@ -87,4 +88,8 @@ AboutMe.ListText = function AboutMeListText({ children, ...restProps }) {
 
 AboutMe.TextCenter = function AboutMeTextCenter({ children, ...restProps }) {
   return <TextCenter {...restProps}>{children}</TextCenter>;
+};
+
+AboutMe.Btn = function AboutMeTextCenter({ children, ...restProps }) {
+  return <Btn {...restProps}>{children}</Btn>;
 };

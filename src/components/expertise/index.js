@@ -17,8 +17,12 @@ Expertise.Text = function ExpertiseText({ children, ...restProps }) {
   return <EX.Text {...restProps}>{children}</EX.Text>;
 };
 
-Expertise.MM = function ExpertiseMM({ children, ...restProps }) {
-  return <EX.MM {...restProps}>{children}</EX.MM>;
+Expertise.MML = function ExpertiseMM({ children, ...restProps }) {
+  return <EX.MML {...restProps}>{children}</EX.MML>;
+};
+
+Expertise.MMS = function ExpertiseMM({ children, ...restProps }) {
+  return <EX.MMS {...restProps}>{children}</EX.MMS>;
 };
 
 Expertise.MMBedge = function ExpertiseMMBadge({ children, ...restProps }) {

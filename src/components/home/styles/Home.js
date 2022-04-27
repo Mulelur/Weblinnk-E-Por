@@ -75,14 +75,9 @@ export const Heading2 = styled.h2`
   margin-bottom: 0px;
   color: rgb(255, 255, 255);
 
-  @media (min-width: 992px) {
-    font-size: 60px;
-    line-height: 70px;
-  }
-
-  @media (min-width: 576px) {
-    font-size: 50px;
-    line-height: 62px;
+  @media (max-width: 576px) {
+    font-size: 34px;
+    line-height: 47px;
   }
 `;
 
@@ -169,6 +164,7 @@ export const Links = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 4rem;
 
   @media screen and (min-width: 768px) {
     margin-top: 4rem;

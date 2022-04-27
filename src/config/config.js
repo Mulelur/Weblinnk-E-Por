@@ -116,9 +116,9 @@ export const projectsPage = {
   intro: "Most of us have free time, we just don’t spend it wisely.",
   projects: [
     {
-      title: "",
+      title: "A new project",
       link: "",
-      module: "",
+      module: "Appl com",
     },
   ],
   highSchoolSubjects: [

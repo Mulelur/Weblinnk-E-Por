@@ -129,6 +129,7 @@ export const TextArea = styled.p`
 export const Buttons = styled.div`
   margin-bottom: 5rem;
   padding: 1rem;
+  display: flex;
   @media (max-width: 400px) {
     margin: 2%;
     margin-bottom: 5%;
@@ -210,5 +211,9 @@ export const ListText = styled.span`
 export const TextCenter = styled.div`
   text-align: center;
   margin-bottom: 3rem;
+  padding: 0.8rem;
+`;
+
+export const Btn = styled.div`
   padding: 0.8rem;
 `;

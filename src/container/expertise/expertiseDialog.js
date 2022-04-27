@@ -6,6 +6,8 @@ import Slide from "@mui/material/Slide";
 import { Button, ClearButton } from "../../components/buttons";
 import { Expertise } from "../../components";
 import TimeIcon from "../../components/svg/Time";
+import SmTime from "../../components/svg/SMTime";
+
 import Intros from "../Intros";
 
 import { projectsPage } from "../../config/config";
@@ -108,13 +110,12 @@ export default function ExpertiseDialog() {
               <Expertise.Container>
                 <Expertise.Content>
                   <Expertise.Heading2>Management Matrix</Expertise.Heading2>
-                  <Expertise.MM>
+                  <Expertise.MML>
                     <TimeIcon />
-                  </Expertise.MM>
-                  <Expertise.MM>
-                    {/* <SmTime /> */}
-                    {/* {`http://localhost:1337${mediaData.url}`} */}
-                  </Expertise.MM>
+                  </Expertise.MML>
+                  <Expertise.MMS>
+                    <SmTime />
+                  </Expertise.MMS>
                 </Expertise.Content>
               </Expertise.Container>
             </Expertise.Box>
