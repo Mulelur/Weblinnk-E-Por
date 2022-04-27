@@ -130,9 +130,14 @@ export const Buttons = styled.div`
   margin-bottom: 5rem;
   padding: 1rem;
   display: flex;
+
   @media (max-width: 400px) {
     margin: 2%;
     margin-bottom: 5%;
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
 `;
 
@@ -216,4 +221,5 @@ export const TextCenter = styled.div`
 
 export const Btn = styled.div`
   padding: 0.8rem;
+  margin-bottom: 1.5rem;
 `;
