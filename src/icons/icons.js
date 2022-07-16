@@ -1,5 +1,4 @@
 import React from "react";
-import { textColor } from "../colors/colors";
 
 export function FacebookIcon() {
   return (
