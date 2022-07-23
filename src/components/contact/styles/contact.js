@@ -1,13 +1,16 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  padding: 4rem 1rem;
-  margin: -1rem 0;
-`;
+export const Container = styled.div``;
 
 export const Main = styled.main`
   background-color: #161c2d;
   height: 100%;
+
+  @media screen and (max-width: 786px) {
+    flex-direction: column;
+
+    padding-bottom: 4rem;
+  }
 `;
 
 export const Box = styled.div`
@@ -18,22 +21,15 @@ export const Box = styled.div`
   margin-left: auto;
 
   @media screen and (min-width: 992px) {
-    max-width: 980px;
+    max-width: 1049px;
   }
-
-  // @media screen and (min-width: 768px) {
-  //   max-width: 720px;
-  // }
-
-  // @media screen and (min-width: 576px) {
-  //   max-width: 540px;
-  // } ;
 `;
 
 export const Content = styled.div`
   display: flex;
+  padding-bottom: 2rem;
 
-  @media screen and (max-width: 586px) {
+  @media screen and (max-width: 786px) {
     flex-direction: column;
   }
 `;
@@ -46,7 +42,7 @@ export const Heading1 = styled.h2`
 
   font-weight: 700;
   letter-spacing: -1.15px;
-  font-size: 2.125rem;
+  font-size: 2rem;
   line-height: 1.115;
   color: rgb(255, 255, 255);
   margin-bottom: 2rem;
@@ -57,7 +53,7 @@ export const Form = styled.form``;
 export const Input = styled.input`
   display: block;
   width: 100%;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.5;
   border-top: none;
@@ -85,7 +81,7 @@ export const Input = styled.input`
 
 export const TextArea = styled.textarea`
   width: 100%;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.5;
 
@@ -168,7 +164,7 @@ export const IconsItem = styled.div`
 
 export const IconsTitle = styled.h3`
   padding: 0.5rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
 `;
 
 export const IconsText = styled.p``;
@@ -178,7 +174,7 @@ export const Icon = styled.img`
 `;
 
 export const Button = styled.button`
-  font-size: 13px;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 1.63px;
   text-transform: uppercase;
@@ -209,14 +205,14 @@ export const Button = styled.button`
 
 export const ContactCard = styled.div`
   @media (min-width: 992px) {
-    margin-top: 250px;
+    margin-top: 320px;
   }
 
   @media (min-width: 992px) {
     margin-left: 3rem !important;
   }
 
-  padding: 3rem !important;
+  padding: 1.4rem !important;
 
   border-radius: 10px;
   background-color: rgba(73, 95, 239, 0.1);
@@ -226,7 +222,7 @@ export const ContactCard = styled.div`
 export const ContactCardItem = styled.div``;
 
 export const ContactCardLink = styled.a`
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   transition: all 0.3s ease-out 0s;
 
   font-weight: 700 !important;

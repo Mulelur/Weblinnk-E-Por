@@ -8,6 +8,8 @@ export default function NavBarContainer({ setOpen }) {
 
   const setDialog = useStoreActions((actions) => actions.setDialog);
 
+  const site = useStoreState((state) => state.site);
+
   const handleClickOpen = (id) => {
     setDialog({ id, open: true });
   };
@@ -31,7 +33,7 @@ export default function NavBarContainer({ setOpen }) {
     <NavBar>
       <NavBar.Container scrolling={scrolling} showMenu={showMenu}>
         <NavBar.NavLink>
-          <NavBar.Logo>Weblinnk</NavBar.Logo>
+          <NavBar.Logo>{site.siteName}</NavBar.Logo>
         </NavBar.NavLink>
         <NavBar.Menu
           onClick={(e) => {

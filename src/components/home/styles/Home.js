@@ -4,6 +4,7 @@ export const Section = styled.section``;
 
 export const Main = styled.main`
   height: 100%;
+  padding-top: 4rem;
 `;
 
 export const Container = styled.div`
@@ -130,7 +131,6 @@ export const Image = styled.img`
 
 export const Text = styled.p`
   font-size: 1.8rem;
-  width: 48rem;
   text-align: center;
   margin-bottom: 1.4rem;
   line-height: 1.5;

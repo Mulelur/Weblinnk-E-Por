@@ -8,12 +8,11 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
-import SectionHeaderContainer from "../container/home/Home";
+import HomeDialog from "../container/home/Home";
 import NavBarContainer from "../container/navBar";
 import AboutMeDialog from "../container/aboutMe/aboutMeDialog";
-import ExpertiseDialog from "../container/expertise/expertiseDialog";
 import ContactDialog from "../container/contact/contactDialog";
-import HobbiesDialog from "../container/hobbies/hobbiesDialog";
+import SavePage from "../components/savePage";
 
 export default function Home() {
   const [open, setOpen] = React.useState(false);
@@ -70,11 +69,10 @@ export default function Home() {
         }}
       >
         <NavBarContainer setOpen={setOpen} />
-        <SectionHeaderContainer />
+        <HomeDialog />
         <AboutMeDialog />
-        <ExpertiseDialog />
         <ContactDialog />
-        <HobbiesDialog />
+        <SavePage />
         <Drawer
           anchor={anchor}
           open={open}

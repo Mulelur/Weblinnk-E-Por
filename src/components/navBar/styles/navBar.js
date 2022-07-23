@@ -1,23 +1,13 @@
 import styled from "styled-components";
-import { Link as ReachRouterLink } from "react-router-dom";
-import { primaryColor, textColor } from "../../../colors/colors";
 
 export const Container = styled.div`
-  // display: flex;
-  // position: relative;
-  // align-items: center;
-  // justify-content: space-between;
-  // width: 100%;
-  // height: 4.7rem;
-  // background-color: ${primaryColor};
-  // color: ${textColor};
-
   padding: 0px;
-  padding: 1.8rem;
+  padding: 0.8rem;
   display: flex;
   align-items: center;
   width: 100%;
   z-index: 1;
+  font-size: 0.8rem;
   background-color: transparent;
 
   @media (min-width: 992px) {
@@ -50,10 +40,10 @@ export const Nav = styled.nav`
   color: #fff;
 `;
 
-export const NavLink = styled(ReachRouterLink)`
+export const NavLink = styled.a`
   color: inherit;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1rem;
 
   margin-right: auto;
 `;

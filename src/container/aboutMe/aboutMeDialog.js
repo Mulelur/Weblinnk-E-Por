@@ -4,12 +4,11 @@ import Dialog from "@mui/material/Dialog";
 import CloseIcon from "@mui/icons-material/Close";
 import Slide from "@mui/material/Slide";
 import { AboutMe } from "../../components";
-import { Button, ClearButton } from "../../components/buttons";
+import { ClearButton } from "../../components/buttons";
 import Intros from "../Intros";
 import FooterContainer from "../footer";
 import { ButtonLink } from "../../components/buttons/styles/button";
-
-import { aboutPage } from "../../config/config";
+import Editor from "../../components/editor/editor";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="right" ref={ref} {...props} />;
@@ -20,6 +19,12 @@ export default function AboutMeDialog() {
 
   const setDialog = useStoreActions((actions) => actions.setDialog);
 
+  const site = useStoreState((state) => state.site);
+
+  const pages = useStoreState((state) => state.pages);
+
+  const setAboutPage = useStoreActions((actions) => actions.setAboutPage);
+
   const handleClose = (id) => {
     setDialog({ id, open: false });
   };
@@ -27,6 +32,8 @@ export default function AboutMeDialog() {
   const getOpen = () => {
     return dialogs.find((item) => item.name === "About Me").open;
   };
+
+  // All about Me 😎 🇿🇦
 
   return (
     <div>
@@ -40,50 +47,55 @@ export default function AboutMeDialog() {
           <ClearButton onClick={() => handleClose(1)}>
             <CloseIcon fontSize="large" />
           </ClearButton>
-          <Intros.Intro2 />
+          <Intros.Intro2>
+            <Editor
+              value={pages.aboutPage.title1}
+              onChange={(e) => {
+                setAboutPage({
+                  type: "title1",
+                  value: e.target.value,
+                });
+              }}
+              site={site}
+            >
+              {pages.aboutPage.title1}
+            </Editor>
+          </Intros.Intro2>
           <AboutMe>
             <AboutMe.Box>
               <AboutMe.Container>
                 <AboutMe.Content>
-                  <AboutMe.Column>
-                    <div>
-                      <AboutMe.Image src={aboutPage.profile.url} />
-                    </div>
-                  </AboutMe.Column>
-                  <AboutMe.Column>
-                    <AboutMe.TextArea>
-                      <AboutMe.Heading2>{aboutPage.names}</AboutMe.Heading2>
-                      <AboutMe.Text>{aboutPage.summary}</AboutMe.Text>
-                      <AboutMe.Heading2>Learning styles</AboutMe.Heading2>
-                      <AboutMe.List>
-                        {aboutPage.LearningStyles.map((item, index) => {
-                          return (
-                            <>
-                              <AboutMe.ListItem>
-                                <AboutMe.ListTitle>
-                                  {item.title}
-                                </AboutMe.ListTitle>
-                                <AboutMe.ListText>{item.desc}</AboutMe.ListText>
-                              </AboutMe.ListItem>
-                            </>
-                          );
-                        })}
-                      </AboutMe.List>
-                      <AboutMe.Buttons>
-                        {aboutPage.links.map((item, idx) => {
-                          return (
-                            <>
-                              <AboutMe.Btn>
-                                <Button key={idx} href={item.url}>
-                                  {item.title}
-                                </Button>
-                              </AboutMe.Btn>
-                            </>
-                          );
-                        })}
-                      </AboutMe.Buttons>
-                    </AboutMe.TextArea>
-                  </AboutMe.Column>
+                  <AboutMe.TextArea>
+                    <AboutMe.Heading2>
+                      <Editor
+                        value={pages.aboutPage.title2}
+                        onChange={(e) => {
+                          setAboutPage({
+                            type: "title2",
+                            value: e.target.value,
+                          });
+                        }}
+                        site={site}
+                      >
+                        {pages.aboutPage.title2}
+                      </Editor>
+                    </AboutMe.Heading2>
+                    <AboutMe.Text>
+                      <Editor
+                        value={pages.aboutPage.text1}
+                        onChange={(e) => {
+                          setAboutPage({
+                            type: "text1",
+                            value: e.target.value,
+                          });
+                        }}
+                        site={site}
+                      >
+                        {pages.aboutPage.text1}
+                      </Editor>
+                    </AboutMe.Text>
+                    <AboutMe.Heading2></AboutMe.Heading2>
+                  </AboutMe.TextArea>
                 </AboutMe.Content>
               </AboutMe.Container>
             </AboutMe.Box>
@@ -100,7 +112,7 @@ export default function AboutMeDialog() {
               </AboutMe.Container>
             </AboutMe.Box>
           </AboutMe>
-          <FooterContainer color="rgb(22, 28, 45)" />{" "}
+          <FooterContainer color="rgb(22, 28, 45)" />
         </>
       </Dialog>
     </div>

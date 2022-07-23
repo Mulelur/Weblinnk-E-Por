@@ -7,9 +7,7 @@ import Zoom from "@mui/material/Zoom";
 import CloseIcon from "@mui/icons-material/Close";
 import { Contact } from "../../components";
 import { ClearButton } from "../../components/buttons";
-
-import { user } from "../../config/config";
-import FooterContainer from "../footer";
+import Editor from "../../components/editor/editor";
 import Intros from "../Intros";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -20,6 +18,12 @@ export default function ContactDialog() {
   const dialogs = useStoreState((state) => state.dialogs);
 
   const setDialog = useStoreActions((actions) => actions.setDialog);
+
+  const site = useStoreState((state) => state.site);
+
+  const pages = useStoreState((state) => state.pages);
+
+  const setContactPage = useStoreActions((actions) => actions.setContactPage);
 
   const handleClose = (id) => {
     setDialog({ id, open: false });
@@ -60,7 +64,6 @@ export default function ContactDialog() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(name, email, message, subject);
     axios
       .post("http://localhost:1337/api/in-boxes", requestPayload)
       .then(function (response) {
@@ -76,11 +79,24 @@ export default function ContactDialog() {
       <Dialog
         fullScreen
         open={getOpen()}
-        onClose={() => handleClose(4)}
+        onClose={() => handleClose(2)}
         TransitionComponent={Transition}
       >
-        <Intros.Intro4 />
-        <ClearButton onClick={() => handleClose(4)}>
+        <Intros.Intro4>
+          <Editor
+            value={pages.contactPage.title1}
+            onChange={(e) => {
+              setContactPage({
+                type: "title1",
+                value: e.target.value,
+              });
+            }}
+            site={site}
+          >
+            {pages.contactPage.title1}
+          </Editor>
+        </Intros.Intro4>
+        <ClearButton onClick={() => handleClose(2)}>
           <CloseIcon fontSize="large" />
         </ClearButton>
         <Contact>
@@ -88,10 +104,33 @@ export default function ContactDialog() {
             <Contact.Container>
               <Contact.Content>
                 <Contact.Col>
-                  <Contact.Heading1>Contact now</Contact.Heading1>
+                  <Contact.Heading1>
+                    <Editor
+                      value={pages.contactPage.title2}
+                      onChange={(e) => {
+                        setContactPage({
+                          type: "title2",
+                          value: e.target.value,
+                        });
+                      }}
+                      site={site}
+                    >
+                      {pages.contactPage.title2}
+                    </Editor>
+                  </Contact.Heading1>
                   <Contact.Text>
-                    Have a project or question? Send me a message. I will reply
-                    within 48 hours.
+                    <Editor
+                      value={pages.contactPage.text1}
+                      onChange={(e) => {
+                        setContactPage({
+                          type: "text1",
+                          value: e.target.value,
+                        });
+                      }}
+                      site={site}
+                    >
+                      {pages.contactPage.text1}
+                    </Editor>
                   </Contact.Text>
                   <Contact.Form
                     onSubmit={(e) => {
@@ -192,17 +231,43 @@ export default function ContactDialog() {
                       <Contact.ContactCardText>
                         Email me at
                       </Contact.ContactCardText>
-                      <Contact.ContactCardLink href="mailto:hello@folio.com">
-                        {user.email}
-                      </Contact.ContactCardLink>
+                      <Editor
+                        value={pages.contactPage.email}
+                        onChange={(e) => {
+                          setContactPage({
+                            type: "email",
+                            value: e.target.value,
+                          });
+                        }}
+                        site={site}
+                      >
+                        <Contact.ContactCardLink
+                          href={`mailto:${pages.contactPage.email}`}
+                        >
+                          {pages.contactPage.email}
+                        </Contact.ContactCardLink>
+                      </Editor>
                     </Contact.ContactCardItem>
                     <Contact.ContactCardItem style={{ marginTop: "3rem" }}>
                       <Contact.ContactCardText>
-                        Call me ats
+                        Call me at
                       </Contact.ContactCardText>
-                      <Contact.ContactCardLink href="tel:+1-402-4983">
-                        {user.phoneNumber}
-                      </Contact.ContactCardLink>
+                      <Editor
+                        value={pages.contactPage.phone}
+                        onChange={(e) => {
+                          setContactPage({
+                            type: "phone",
+                            value: e.target.value,
+                          });
+                        }}
+                        site={site}
+                      >
+                        <Contact.ContactCardLink
+                          href={`tel:${pages.contactPage.phone}`}
+                        >
+                          {pages.contactPage.phone}
+                        </Contact.ContactCardLink>
+                      </Editor>
                     </Contact.ContactCardItem>
                   </Contact.ContactCard>
                 </Contact.Col>
@@ -210,7 +275,6 @@ export default function ContactDialog() {
             </Contact.Container>
           </Contact.Box>
         </Contact>
-        <FooterContainer />
       </Dialog>
     </div>
   );

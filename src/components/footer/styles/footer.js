@@ -58,12 +58,14 @@ export const List = styled.ul`
 
 export const ListItem = styled.li``;
 
-export const Text = styled.h4`
-  font-size: 1.3125rem;
+export const Text = styled.h5`
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: -0.5px;
   line-height: 1;
   color: currentColor;
+  padding: 0;
+  margin: 0;
 `;
 
 export const Link = styled.a``;
