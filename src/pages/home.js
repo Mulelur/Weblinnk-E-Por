@@ -13,13 +13,37 @@ import NavBarContainer from "../container/navBar";
 import AboutMeDialog from "../container/aboutMe/aboutMeDialog";
 import ContactDialog from "../container/contact/contactDialog";
 import SavePage from "../components/savePage";
+import { useQuery } from "@apollo/client";
+import SITE from "../graphQL/ouerys/siteQuery";
 
 export default function Home() {
   const [open, setOpen] = React.useState(false);
 
+  const { loading, error, data } = useQuery(SITE, {
+    variables: {
+      id: 1,
+    },
+  });
+
   const dialogs = useStoreState((state) => state.dialogs);
 
   const setDialog = useStoreActions((actions) => actions.setDialog);
+
+  const setSite = useStoreActions((actions) => actions.setSite);
+
+  const setPages = useStoreActions((actions) => actions.setPages);
+
+  React.useLayoutEffect(() => {
+    if (!loading && !error) {
+      setPages(data.site.data.attributes.template.data.attributes.pages);
+
+      setSite(data.site.data.attributes);
+    }
+  }, [loading]);
+
+  if (loading) return <>Loading...</>;
+
+  if (error) return <>{`Error! ${error.message}`}</>;
 
   const handleClickOpen = (id) => {
     setDialog({ id, open: true });

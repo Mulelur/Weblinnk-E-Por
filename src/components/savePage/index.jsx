@@ -6,7 +6,7 @@ import { gql, useMutation } from "@apollo/client";
 
 const UPDATE_PAGE = gql`
   mutation ($data: TemplateInput!) {
-    updateTemplate(id: 8, data: $data) {
+    updateTemplate(id: 1, data: $data) {
       data {
         id
       }

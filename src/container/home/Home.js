@@ -1,83 +1,16 @@
 import React from "react";
 import { Home } from "../../components";
 import { Button } from "../../components/buttons";
-import { gql, useQuery } from "@apollo/client";
 import { useStoreState, useStoreActions } from "easy-peasy";
 
 import Editor from "../../components/editor/editor";
 
-const SITE = gql`
-  query {
-    site(id: 9) {
-      data {
-        attributes {
-          status
-          siteUrl
-          siteName
-          previewUrl
-          category
-          template {
-            data {
-              attributes {
-                pages {
-                  homePage {
-                    title1
-                    title2
-                    title3
-                    link1
-                    link2
-                  }
-                  aboutPage {
-                    title1
-                    title2
-                    text1
-                  }
-                  contactPage {
-                    title1
-                    title2
-                    text1
-                    email
-                    phone
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
-
 export default function SectionHeaderContainer() {
-  const { loading, error, data } = useQuery(SITE);
-
   const pages = useStoreState((state) => state.pages);
 
   const site = useStoreState((state) => state.site);
 
-  const setSite = useStoreActions((actions) => actions.setSite);
-
-  const setPages = useStoreActions((actions) => actions.setPages);
-
   const setHomePage = useStoreActions((actions) => actions.setHomePage);
-
-  React.useLayoutEffect(() => {
-    if (!loading) {
-      console.log(
-        data.site.data.attributes.template.data.attributes.pages,
-        "pags ----"
-      );
-
-      setPages(data.site.data.attributes.template.data.attributes.pages);
-
-      setSite(data.site.data.attributes);
-    }
-  }, [loading]);
-
-  if (loading) return "Loading...";
-
-  if (error) return `Error! ${error.message}`;
 
   return (
     <Home>
