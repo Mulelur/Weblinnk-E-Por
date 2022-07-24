@@ -2,6 +2,8 @@ import * as React from "react";
 import styled from "styled-components";
 import CreateIcon from "@mui/icons-material/Create";
 import Backdrop from "@mui/material/Backdrop";
+import Fab from "@mui/material/Fab";
+import EditIcon from "@mui/icons-material/Edit";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import TextField from "@mui/material/TextField";
@@ -50,7 +52,9 @@ export default function Editor({ children, onChange, value, site }: Props) {
         <Container>
           <P>{children}</P>
           <IconWrapper onClick={handleOpen}>
-            <CreateIcon />
+            <Fab color="secondary" aria-label="edit">
+              <EditIcon />
+            </Fab>
           </IconWrapper>
           <Modal
             aria-labelledby="transition-modal-title"
@@ -89,7 +93,7 @@ export default function Editor({ children, onChange, value, site }: Props) {
                       multiline
                       maxRows={12}
                       id="outlined-basic"
-                      label="Outlined"
+                      label="Edit text"
                       variant="outlined"
                       onChange={onChange}
                     />
@@ -120,7 +124,7 @@ const Container = styled.div`
   // opacity: 0;
 
   &:hover {
-    border: 1px solid #ccc;
+    // border: 1px solid #ccc;
     cursor: pointer;
   }
 `;

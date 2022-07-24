@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useStoreState, useStoreActions } from "easy-peasy";
+import { Helmet } from "react-helmet-async";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
@@ -15,6 +16,7 @@ import ContactDialog from "../container/contact/contactDialog";
 import SavePage from "../components/savePage";
 import { useQuery } from "@apollo/client";
 import SITE from "../graphQL/ouerys/siteQuery";
+import Loading from "../components/loading";
 
 export default function Home() {
   const [open, setOpen] = React.useState(false);
@@ -26,6 +28,8 @@ export default function Home() {
   });
 
   const dialogs = useStoreState((state) => state.dialogs);
+
+  const site = useStoreState((state) => state.site);
 
   const setDialog = useStoreActions((actions) => actions.setDialog);
 
@@ -41,7 +45,12 @@ export default function Home() {
     }
   }, [loading]);
 
-  if (loading) return <>Loading...</>;
+  if (loading)
+    return (
+      <>
+        <Loading />
+      </>
+    );
 
   if (error) return <>{`Error! ${error.message}`}</>;
 
@@ -87,6 +96,13 @@ export default function Home() {
 
   return (
     <>
+      <Helmet>
+        <title>Weblinnk - {site.siteName}</title>
+        <meta
+          name="description"
+          content="A React Boilerplate application homepage"
+        />
+      </Helmet>
       <div
         style={{
           backgroundColor: "#161C2D",
