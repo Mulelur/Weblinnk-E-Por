@@ -1,6 +1,5 @@
 import * as React from "react";
 import styled from "styled-components";
-import { useStoreState } from "easy-peasy";
 import CreateIcon from "@mui/icons-material/Create";
 import Backdrop from "@mui/material/Backdrop";
 import Modal from "@mui/material/Modal";
