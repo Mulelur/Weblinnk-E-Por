@@ -121,17 +121,24 @@ const Container = styled.div`
   border-radius: 0.45rem;
   transition: border 0.4s ease-in-out;
 
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
   // opacity: 0;
 
   &:hover {
     // border: 1px solid #ccc;
     cursor: pointer;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1),
+      0px 1px 2px 0px rgba(0, 0, 0, 0.06);
   }
 `;
 
 const IconWrapper = styled.div`
-  min-width: 32px;
-  min-height: 32px;
+  min-width: 56px;
+  min-height: 56px;
   margin-left: 8px;
   border-radius: 50%;
   background-color: #545050;
