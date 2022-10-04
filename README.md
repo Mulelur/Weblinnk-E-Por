@@ -1,3 +1,3 @@
 ## Weblinnk React Template
 
-# THis Template was created using React
+# This Template was created using React
